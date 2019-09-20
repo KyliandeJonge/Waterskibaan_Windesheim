@@ -57,6 +57,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="classes\KabelTests.cs" />
+    <Compile Include="classes\LijnenVoorraadTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
