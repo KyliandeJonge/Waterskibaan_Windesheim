@@ -49,6 +49,7 @@
     <Compile Include="classes\LijnenVoorraad.cs" />
     <Compile Include="classes\Skies.cs" />
     <Compile Include="classes\Sporter.cs" />
+    <Compile Include="classes\Waterskibaan.cs" />
     <Compile Include="classes\Zwemvest.cs" />
     <Compile Include="interfaces\IMoves.cs" />
     <Compile Include="Program.cs" />

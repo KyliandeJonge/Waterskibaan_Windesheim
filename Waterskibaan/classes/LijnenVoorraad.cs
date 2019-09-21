@@ -10,6 +10,11 @@ namespace Waterskibaan.classes
     {
         Queue<Lijn> _lijnen = new Queue<Lijn>();
 
+        public LijnenVoorraad()
+        {
+
+        }
+
         public void LijnToevoegenAanRij(Lijn lijn)
         {
             _lijnen.Enqueue(lijn);

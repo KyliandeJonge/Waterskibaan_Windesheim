@@ -11,34 +11,26 @@ namespace Waterskibaan
     {
         static void Main(string[] args)
         {
-            Kabel kabel = new Kabel();
+            WaterskibaanObj waterskibaan = new WaterskibaanObj();
 
-            Lijn lijn0 = new Lijn();
-            Lijn lijn1 = new Lijn();
-            Lijn lijn2 = new Lijn();
-            Lijn lijn3 = new Lijn();
-            Lijn lijn4 = new Lijn();
-            Lijn lijn5 = new Lijn();
-            Lijn lijn6 = new Lijn();
-            Lijn lijn7 = new Lijn();
-            Lijn lijn8 = new Lijn();
-            Lijn lijn9 = new Lijn();
+            waterskibaan.kabel.NeemLijnInGebruik(new Lijn());
+            waterskibaan.VerplaatsKabel();
+            waterskibaan.VerplaatsKabel();
+            waterskibaan.VerplaatsKabel();
+            waterskibaan.VerplaatsKabel();
+            waterskibaan.VerplaatsKabel();
+            waterskibaan.VerplaatsKabel();
+            waterskibaan.VerplaatsKabel();
+            waterskibaan.VerplaatsKabel();
+            waterskibaan.VerplaatsKabel();
+            waterskibaan.VerplaatsKabel();
+            
 
-            kabel.NeemLijnInGebruik(lijn0);
-            kabel.VerschuifLijnen();
-            kabel.NeemLijnInGebruik(lijn1);
-            kabel.VerschuifLijnen();
-            kabel.NeemLijnInGebruik(lijn2);
-            kabel.VerschuifLijnen();
-            kabel.NeemLijnInGebruik(lijn3);
-            kabel.VerschuifLijnen();
-            kabel.NeemLijnInGebruik(lijn4);
-            kabel.VerschuifLijnen();
-            kabel.VerschuifLijnen();
-            kabel.VerschuifLijnen();
-            kabel.VerschuifLijnen();
 
-            Console.WriteLine(kabel);
+            Console.WriteLine(waterskibaan);
+            
+
+           
         }
     }
 }
