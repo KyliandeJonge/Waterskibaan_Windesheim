@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text; 
 using System.Threading.Tasks;
 using Waterskibaan.interfaces;
@@ -12,12 +13,11 @@ namespace Waterskibaan.classes
     {
         public static List<IMoves> GetWillekeurigeMoves()
         {
-            Random gen = new Random();
             List<IMoves> moves = new List<IMoves>();
 
-            for (int i = 0; i < gen.Next(1, 8); i++)
+            for (int i = 0; i < Random.Next(1, 8); i++)
             {
-                int random = gen.Next(1, 4);
+                int random = Random.Next(1, 4);
                 IMoves move = null;
                 switch (random)
                 {
@@ -39,6 +39,20 @@ namespace Waterskibaan.classes
             }
 
             return moves;
+        }
+
+        public static int Next(int min, int max)
+        {
+            if (min >= max)
+            {
+                throw new ArgumentException("Min value is greater or equals than Max value.");
+            }
+            byte[] intBytes = new byte[4];
+            using (RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider())
+            {
+                rng.GetNonZeroBytes(intBytes);
+            }
+            return min + Math.Abs(BitConverter.ToInt32(intBytes, 0)) % (max - min + 1);
         }
 
     }

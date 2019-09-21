@@ -8,24 +8,11 @@ namespace Waterskibaan.classes
 {
     public class Lijn
     {
-        private int positieOpKabel = 0;
+        public Sporter Sporter { get; set; }
 
-        public int PositieOpKabel {
-            get
-            {
-                return positieOpKabel;
-            }
-            set
-            {
-                this.positieOpKabel = value;
-            }
-        }
-       
-        public Lijn()
-        {
-           
-        }
+        public int PositieOpKabel { get; set; } = 0;
 
-      
+
+
     }
 }
