@@ -41,6 +41,7 @@ namespace Waterskibaan.classes
                     _lijnen.Remove(it);
                     _lijnen.AddFirst(it);
                     it.Value.PositieOpKabel = 0;
+                    it.Value.Sporter.AantalRondenTeGaan--;
 
                 }
                 else {
@@ -55,7 +56,7 @@ namespace Waterskibaan.classes
         {
             for (LinkedListNode<Lijn> it = _lijnen.First; it != null; it = it.Next)
             {
-                if (it.Value.PositieOpKabel == 9)
+                if (it.Value.PositieOpKabel == 9 && it.Value.Sporter.AantalRondenTeGaan == 1)
                 {
                     _lijnen.Remove(it);
                     return it.Value;
