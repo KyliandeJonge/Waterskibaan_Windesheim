@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Waterskibaan.classes;
+using Waterskibaan.interfaces;
 
 namespace Waterskibaan
 {
@@ -11,26 +12,8 @@ namespace Waterskibaan
     {
         static void Main(string[] args)
         {
-            WaterskibaanObj waterskibaan = new WaterskibaanObj();
-
-            waterskibaan.kabel.NeemLijnInGebruik(new Lijn());
-            waterskibaan.VerplaatsKabel();
-            waterskibaan.VerplaatsKabel();
-            waterskibaan.VerplaatsKabel();
-            waterskibaan.VerplaatsKabel();
-            waterskibaan.VerplaatsKabel();
-            waterskibaan.VerplaatsKabel();
-            waterskibaan.VerplaatsKabel();
-            waterskibaan.VerplaatsKabel();
-            waterskibaan.VerplaatsKabel();
-            waterskibaan.VerplaatsKabel();
-            
-
-
-            Console.WriteLine(waterskibaan);
-            
-
-           
+            Sporter sporter1 = new Sporter(MoveCollection.GetWillekeurigeMoves());
+            Console.WriteLine(sporter1.AantalBehaaldePunten);
         }
     }
 }

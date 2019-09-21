@@ -47,11 +47,16 @@
     <Compile Include="classes\Kabel.cs" />
     <Compile Include="classes\Lijn.cs" />
     <Compile Include="classes\LijnenVoorraad.cs" />
+    <Compile Include="classes\MoveCollection.cs" />
     <Compile Include="classes\Skies.cs" />
     <Compile Include="classes\Sporter.cs" />
     <Compile Include="classes\Waterskibaan.cs" />
     <Compile Include="classes\Zwemvest.cs" />
     <Compile Include="interfaces\IMoves.cs" />
+    <Compile Include="moves\Backflip.cs" />
+    <Compile Include="moves\Draai360.cs" />
+    <Compile Include="moves\Frontflip.cs" />
+    <Compile Include="moves\Jump.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
