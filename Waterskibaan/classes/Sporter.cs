@@ -26,6 +26,11 @@ namespace Waterskibaan.classes
             AantalRondenTeGaan = this.setAantalRondenTeGaan(); 
         }
 
+        public Sporter() : this(null)
+        {
+            
+        }
+
         private int setAantalRondenTeGaan()
         {
             return Random.Next(1,2);
@@ -33,6 +38,9 @@ namespace Waterskibaan.classes
 
         private void getBehaaldePunten()
         {
+            if (this.Moves == null)
+                return;
+
             foreach (IMoves move in this.Moves)
             {
                 AantalBehaaldePunten += move.Move();

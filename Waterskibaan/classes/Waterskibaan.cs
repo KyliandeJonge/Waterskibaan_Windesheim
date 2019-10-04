@@ -20,7 +20,7 @@ namespace Waterskibaan.classes
         {
             if (sporter.Zwemvest == null || sporter.Skies == null)
                 throw new Exception("Sporter mist een zwemvest of skies");
-
+            
             if (kabel.IsStartPositieLeeg())
             {
                 Lijn lijnVanSporter = lijnenVoorraad.VerwijderEersteLijn();
@@ -42,6 +42,7 @@ namespace Waterskibaan.classes
             this.kabel.VerschuifLijnen();
             Lijn ontkoppeldeLijn = this.kabel.VerwijderLijnVanKabel();
 
+            Console.WriteLine(ontkoppeldeLijn);
             if (ontkoppeldeLijn != null)
             {
                 lijnenVoorraad.LijnToevoegenAanRij(ontkoppeldeLijn);

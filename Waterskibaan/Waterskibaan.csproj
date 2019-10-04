@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\EventMethods.cs" />
+    <Compile Include="classes\InstructieGroep.cs" />
     <Compile Include="classes\Kabel.cs" />
     <Compile Include="classes\Lijn.cs" />
     <Compile Include="classes\LijnenVoorraad.cs" />
@@ -51,13 +53,18 @@
     <Compile Include="classes\Random.cs" />
     <Compile Include="classes\Skies.cs" />
     <Compile Include="classes\Sporter.cs" />
+    <Compile Include="classes\Wachtrij.cs" />
+    <Compile Include="classes\WachtrijInstructie.cs" />
+    <Compile Include="classes\WachtrijStarten.cs" />
     <Compile Include="classes\Waterskibaan.cs" />
     <Compile Include="classes\Zwemvest.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="interfaces\IMoves.cs" />
     <Compile Include="moves\Backflip.cs" />
     <Compile Include="moves\Draai360.cs" />
     <Compile Include="moves\Frontflip.cs" />
     <Compile Include="moves\Jump.cs" />
+    <Compile Include="NieuweBezoekerArgs.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

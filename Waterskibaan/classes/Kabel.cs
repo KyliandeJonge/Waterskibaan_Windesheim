@@ -38,6 +38,7 @@ namespace Waterskibaan.classes
             {
                 if (it.Value.PositieOpKabel == 9)
                 {
+                    Console.WriteLine(it.Value);
                     _lijnen.Remove(it);
                     _lijnen.AddFirst(it);
                     it.Value.PositieOpKabel = 0;
@@ -56,7 +57,7 @@ namespace Waterskibaan.classes
         {
             for (LinkedListNode<Lijn> it = _lijnen.First; it != null; it = it.Next)
             {
-                if (it.Value.PositieOpKabel == 9 && it.Value.Sporter.AantalRondenTeGaan == 1)
+                if (it.Value.PositieOpKabel == 9 && it.Value.Sporter.AantalRondenTeGaan == 0)
                 {
                     _lijnen.Remove(it);
                     return it.Value;

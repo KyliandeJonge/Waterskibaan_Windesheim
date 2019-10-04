@@ -12,21 +12,30 @@ namespace Waterskibaan
     {
         static void Main(string[] args)
         {
-            /*WaterskibaanObj waterskibaan = new WaterskibaanObj();*/
+            Game game = new Game();
+            game.Initialize();
+
+
+           /* WaterskibaanObj waterskibaan = new WaterskibaanObj();
             Sporter sporter1 = new Sporter(MoveCollection.GetWillekeurigeMoves());
             Sporter sporter2 = new Sporter(MoveCollection.GetWillekeurigeMoves());
             Sporter sporter3 = new Sporter(MoveCollection.GetWillekeurigeMoves());
             Sporter sporter4 = new Sporter(MoveCollection.GetWillekeurigeMoves());
 
-            /*waterskibaan.SporterStart(sporter1);*/
+            sporter1.Zwemvest = new Zwemvest();
+            sporter1.Skies = new Skies();
+            waterskibaan.SporterStart(sporter1);*/
 
-/*            Console.WriteLine($"Waterskibaan: \n {waterskibaan} \n\n Sporter: \n {sporter1}");*/            Console.WriteLine(sporter2);
-            Console.WriteLine(sporter1);
+         
+
+
+
+            /*Console.WriteLine(sporter1);
             Console.WriteLine(sporter2);
             Console.WriteLine(sporter3);
-            Console.WriteLine(sporter4);
+            Console.WriteLine(sporter4);*/
 
-            
+
 
         }
     }

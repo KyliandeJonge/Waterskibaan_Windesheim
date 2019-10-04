@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Waterskibaan", "Waterskibaa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaterskibaanTests", "..\WaterskibaanTests\WaterskibaanTests.csproj", "{8E58DC4E-C188-448B-A737-36806E0D96EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaterskibaanWpf", "..\WaterskibaanWpf\WaterskibaanWpf.csproj", "{9307EBC2-ED40-446D-9BF8-6308BCFE3293}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8E58DC4E-C188-448B-A737-36806E0D96EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E58DC4E-C188-448B-A737-36806E0D96EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E58DC4E-C188-448B-A737-36806E0D96EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9307EBC2-ED40-446D-9BF8-6308BCFE3293}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9307EBC2-ED40-446D-9BF8-6308BCFE3293}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9307EBC2-ED40-446D-9BF8-6308BCFE3293}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9307EBC2-ED40-446D-9BF8-6308BCFE3293}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
