@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Waterskibaan.classes
+namespace WaterskibaanWpf.classes
 {
     public class Kabel
     {
@@ -70,6 +70,11 @@ namespace Waterskibaan.classes
         public LinkedList<Lijn> GeefLijnenOpKabel()
         {
             return _lijnen;
+        }
+
+        public int GeefLijnenAantal()
+        {
+            return _lijnen.Count();
         }
 
 

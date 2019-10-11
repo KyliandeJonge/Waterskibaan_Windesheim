@@ -7,15 +7,24 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="1200">
     <Grid>
-        <Canvas HorizontalAlignment="Right" Height="100" Margin="0,280,30,0" VerticalAlignment="Top" Width="900" Background="Bisque"/>
-        <Canvas HorizontalAlignment="Right" Height="200" Margin="0,30,30,0" VerticalAlignment="Top" Width="900" Background="Bisque"/>
-        <Canvas HorizontalAlignment="Right" Height="100" Margin="0,410,30,0" VerticalAlignment="Top" Width="900" Background="YellowGreen"/>
-        <Canvas HorizontalAlignment="Right" Height="100" Margin="0,540,30,0" VerticalAlignment="Top" Width="900" Background="YellowGreen"/>
-        <Label Content="Lijnenvoorraad" HorizontalAlignment="Left" Margin="10,606,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="Wachtrij Instructie" HorizontalAlignment="Left" Margin="264,540,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="Instructiegroep" HorizontalAlignment="Left" Margin="264,410,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="Wachtrij Starten" HorizontalAlignment="Left" Margin="264,280,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="0" HorizontalAlignment="Left" Margin="150,606,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="Waterskibaan" HorizontalAlignment="Left" Margin="264,30,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="74*"/>
+            <ColumnDefinition Width="49*"/>
+            <ColumnDefinition Width="474*"/>
+        </Grid.ColumnDefinitions>
+        <Canvas HorizontalAlignment="Right" Height="100" Margin="0,280,29.6,0" VerticalAlignment="Top" Width="900" Background="Bisque" Grid.Column="2"/>
+        <Canvas HorizontalAlignment="Right" Height="200" Margin="0,30,29.6,0" VerticalAlignment="Top" Width="900" Background="Bisque" Grid.Column="2">
+            <Canvas x:Name="canvasWaterskibaan" Height="150" Canvas.Top="50" Width="900"/>
+        </Canvas>
+        <Canvas HorizontalAlignment="Right" Height="100" Margin="0,410,29.6,0" VerticalAlignment="Top" Width="900" Background="YellowGreen" Grid.Column="2"/>
+        <Canvas HorizontalAlignment="Right" Height="100" Margin="0,540,29.6,0" VerticalAlignment="Top" Width="900" Background="YellowGreen" Grid.Column="2"/>
+        <Label Content="Lijnenvoorraad" Margin="10,606,10,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Wachtrij Instructie" HorizontalAlignment="Left" Margin="18.4,540,0,0" VerticalAlignment="Top" FontSize="18" Grid.Column="2"/>
+        <Label Content="Instructiegroep" HorizontalAlignment="Left" Margin="18.4,410,0,0" VerticalAlignment="Top" FontSize="18" Grid.Column="2"/>
+        <Label Content="Wachtrij Starten" HorizontalAlignment="Left" Margin="18.4,280,0,0" VerticalAlignment="Top" FontSize="18" Grid.Column="2"/>
+        <Label Content="0" HorizontalAlignment="Left" Margin="2,606,0,0" VerticalAlignment="Top" FontSize="18" Name="lblLijnenVoorraad" Grid.Column="1"/>
+        <Label Content="Waterskibaan" HorizontalAlignment="Left" Margin="18.4,30,0,0" VerticalAlignment="Top" FontSize="18" Grid.Column="2"/>
+        <Button x:Name="btnStartSkibaan" Content="Start" HorizontalAlignment="Left" Margin="10,581,0,0" VerticalAlignment="Top" Width="75" Click="BtnStartSkibaan_Click"/>
+        <Button Content="Stop" HorizontalAlignment="Left" Margin="0,581,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Click="Button_Click"/>
     </Grid>
 </Window>

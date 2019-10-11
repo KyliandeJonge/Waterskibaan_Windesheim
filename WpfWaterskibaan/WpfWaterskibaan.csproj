@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9307EBC2-ED40-446D-9BF8-6308BCFE3293}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>WaterskibaanWpf</RootNamespace>
-    <AssemblyName>WaterskibaanWpf</AssemblyName>
+    <ProjectGuid>{AC557040-357A-49AA-9138-94CEF396D33E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WpfWaterskibaan</RootNamespace>
+    <AssemblyName>WpfWaterskibaan</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -34,9 +34,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -56,7 +53,6 @@
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -66,36 +62,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="classes\EventMethods.cs" />
-    <Compile Include="classes\InstructieGroep.cs" />
-    <Compile Include="classes\Kabel.cs" />
-    <Compile Include="classes\Lijn.cs" />
-    <Compile Include="classes\LijnenVoorraad.cs" />
-    <Compile Include="classes\MoveCollection.cs" />
-    <Compile Include="classes\Random.cs" />
-    <Compile Include="classes\Skies.cs" />
-    <Compile Include="classes\Sporter.cs" />
-    <Compile Include="classes\Test.cs" />
-    <Compile Include="classes\Wachtrij.cs" />
-    <Compile Include="classes\WachtrijInstructie.cs" />
-    <Compile Include="classes\WachtrijStarten.cs" />
-    <Compile Include="classes\Waterskibaan.cs" />
-    <Compile Include="classes\Zwemvest.cs" />
-    <Compile Include="Game.cs" />
-    <Compile Include="InstructieAfgelopenArgs.cs" />
-    <Compile Include="interfaces\IMoves.cs" />
-    <Compile Include="LijnenVerplaatstArgs.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="moves\Backflip.cs" />
-    <Compile Include="moves\Draai360.cs" />
-    <Compile Include="moves\Frontflip.cs" />
-    <Compile Include="moves\Jump.cs" />
-    <Compile Include="NieuweBezoekerArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

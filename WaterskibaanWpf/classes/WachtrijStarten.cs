@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Waterskibaan.interfaces;
+using WaterskibaanWpf.interfaces;
 
-namespace Waterskibaan.classes
+namespace WaterskibaanWpf.classes
 {
     public class WachtrijStarten : Wachtrij
     {

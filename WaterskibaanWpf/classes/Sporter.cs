@@ -4,35 +4,49 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Waterskibaan.interfaces;
+using System.Windows.Media;
+using WaterskibaanWpf.interfaces;
 
-namespace Waterskibaan.classes
+namespace WaterskibaanWpf.classes
 {
     public class Sporter
     {
+        Brush[] brushes = new Brush[] {
+          Brushes.Navy,
+          Brushes.Chartreuse,
+          Brushes.DarkMagenta,
+          Brushes.DarkSeaGreen,
+          Brushes.Orange,
+          Brushes.Purple
+        };
+
         public Zwemvest Zwemvest { get; set; }
         public Skies Skies { get; set; }
         public int AantalRondenTeGaan { get; set; }
         public int AantalBehaaldePunten { get; set; } = 0;
-
-        public IMoves huidigeMove { get; set; }
-        public Color KledingKleur { get; set; } = Color.Red;
+        public Brush KledingKleur { get; set; }
         public List<IMoves> Moves { get; set; }
 
-       
+        public IMoves huidigeMove { get; set; }
+
+
 
         public Sporter()
         {
             this.Moves = MoveCollection.GetWillekeurigeMoves();
+            this.KledingKleur = brushes[Random.Next(0, 5)];
             this.getBehaaldePunten();
-            AantalRondenTeGaan = this.setAantalRondenTeGaan(); 
+            AantalRondenTeGaan = this.setAantalRondenTeGaan();
         }
-
- 
 
         private int setAantalRondenTeGaan()
         {
             return Random.Next(1,2);
+        }
+
+        public string getNaamHuidigeMove()
+        {
+            return (huidigeMove != null) ? huidigeMove.Naam() : "geen move";
         }
 
         private void getBehaaldePunten()
@@ -44,11 +58,6 @@ namespace Waterskibaan.classes
             {
                 AantalBehaaldePunten += move.Move();
             }
-        }
-
-        public string getNaamHuidigeMove()
-        {
-            return (huidigeMove != null) ? huidigeMove.Naam() : "geen move";
         }
 
         public override string ToString()

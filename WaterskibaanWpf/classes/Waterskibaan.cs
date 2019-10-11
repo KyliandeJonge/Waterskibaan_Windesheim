@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WaterskibaanWpf.classes;
 
-namespace Waterskibaan.classes
+namespace WaterskibaanWpf.classes
 {
     public class WaterskibaanObj
     {
@@ -20,7 +21,7 @@ namespace Waterskibaan.classes
         {
             if (sporter.Zwemvest == null || sporter.Skies == null)
                 throw new Exception("Sporter mist een zwemvest of skies");
-            
+
             if (kabel.IsStartPositieLeeg())
             {
                 Lijn lijnVanSporter = lijnenVoorraad.VerwijderEersteLijn();
@@ -31,7 +32,7 @@ namespace Waterskibaan.classes
 
         private void initLijnenVoorraad()
         {
-            for(int i = 0; i < 15; i++)
+            for (int i = 0; i < 15; i++)
             {
                 lijnenVoorraad.LijnToevoegenAanRij(new Lijn());
             }

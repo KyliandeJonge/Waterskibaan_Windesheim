@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Waterskibaan.classes;
+using WaterskibaanWpf.classes;
 using System.Threading;
 
-namespace Waterskibaan
+namespace WaterskibaanWpf
 {
     public class Game
     {
@@ -38,9 +38,9 @@ namespace Waterskibaan
             this.InstructieAfgelopen += wachtrijStarten.OnInstructieAfgelopen;
 
             this.LijnenVerplaatst += waterskibaan.VerplaatsKabel;
-            this.LijnenVerplaatst += this.StartSporter;
-
-
+            /*this.LijnenVerplaatst += this.StartSporter;*/
+            
+            
             int loopCount = 0;
 
             while (true) {
@@ -53,27 +53,22 @@ namespace Waterskibaan
                 {
                     this.LijnenVerplaatst(new LijnenVerplaatstArgs());             
                 }
-                if (loopCount % 25 == 0 && loopCount != 0)
+                if (loopCount == 25)
                 {
                     StartSporter(new LijnenVerplaatstArgs());
                 }
    
-                if (loopCount % 10 == 0 && loopCount != 0)
+                if (loopCount % 20 == 0 && loopCount != 0)
                 {
                     this.InstructieAfgelopen(new InstructieAfgelopenArgs());
                 }
                     
                 Console.WriteLine("Aantal loops: " + loopCount);
-              /*  Console.WriteLine("Grootte van instructie wachtrij: " + wachtrijInstructie.wachtrij.Count);
+                Console.WriteLine("Grootte van instructie wachtrij: " + wachtrijInstructie.wachtrij.Count);
                 Console.WriteLine("Grootte vab starten wachtrij: " + wachtrijStarten.wachtrij.Count);
                 Console.WriteLine(waterskibaan);
-                Console.WriteLine("\n\n");*/
-
-                foreach (Lijn lijn in waterskibaan.kabel.GeefLijnenOpKabel())
-                {
-                    Console.WriteLine(lijn.Sporter.getNaamHuidigeMove());
-                }
-
+                Console.WriteLine("\n\n");
+                
                 loopCount++;
                 Thread.Sleep(1000);
             }
@@ -98,6 +93,8 @@ namespace Waterskibaan
             {
                 Console.WriteLine("start sporter bad");
             }
+
+
 
 
 
