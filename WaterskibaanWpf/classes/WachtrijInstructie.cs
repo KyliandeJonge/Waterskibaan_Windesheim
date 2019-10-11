@@ -10,23 +10,22 @@ namespace WaterskibaanWpf.classes
     public class WachtrijInstructie : Wachtrij
     {
         public int MAX_LENGTE_RIJ = 100;
+        public int instructieGrootte;
 
         public void OnNieuweBezoeker(NieuweBezoekerArgs args)
         {
-            Console.WriteLine("Wachtrij Starten event fired." + args.sporter);
-            wachtrij.Enqueue(args.sporter);
+            if (wachtrij.Count < this.MAX_LENGTE_RIJ) {
+                wachtrij.Enqueue(args.sporter);
+            }
         }
 
         public void OnInstructieAfgelopen(InstructieAfgelopenArgs args)
         {
-            Console.WriteLine("instrctie afgelopen in wachtrijintrscutei bestand");
-            
-            int count = (wachtrij.Count() <= 20) ? wachtrij.Count : 20;
-            Console.WriteLine($"{count} aantal in wachtrij");
+            int addAmount = 5 - args.InstructieAantal;
 
-            for (int i = 0; i < count; i++)
-            {
-                args.sporters.Add(wachtrij.Dequeue());
+            for (int i = 0; i < addAmount; i++) {
+                
+                args.instructiegroep.Add(wachtrij.Dequeue());
             }
         }
     }

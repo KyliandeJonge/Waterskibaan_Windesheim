@@ -59,6 +59,7 @@ namespace WaterskibaanWpf.classes
             {
                 if (it.Value.PositieOpKabel == 9 && it.Value.Sporter.AantalRondenTeGaan == 0)
                 {
+                    it.Value.PositieOpKabel = 0;
                     _lijnen.Remove(it);
                     return it.Value;
                 }

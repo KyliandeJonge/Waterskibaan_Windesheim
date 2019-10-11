@@ -72,6 +72,7 @@
     <Compile Include="classes\Lijn.cs" />
     <Compile Include="classes\LijnenVoorraad.cs" />
     <Compile Include="classes\MoveCollection.cs" />
+    <Compile Include="classes\PaintMethods.cs" />
     <Compile Include="classes\Random.cs" />
     <Compile Include="classes\Skies.cs" />
     <Compile Include="classes\Sporter.cs" />

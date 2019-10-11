@@ -7,12 +7,7 @@ namespace WaterskibaanWpf
 {
     public class LijnenVerplaatstArgs : EventArgs
     {
-        /*public Queue<Sporter> wachtendeSporters = new Queue<Sporter>();*/
-        InstructieAfgelopenArgs afgelopenArgs;
-
-        public void test()
-        {
-            Console.WriteLine(afgelopenArgs.sporters.Count + " asdfasfas");
-        }
+        public Queue<Sporter> wachtendeSporters = new Queue<Sporter>();
+        
     }
 }

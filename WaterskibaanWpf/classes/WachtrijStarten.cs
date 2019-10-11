@@ -13,10 +13,21 @@ namespace WaterskibaanWpf.classes
 
         public void OnInstructieAfgelopen(InstructieAfgelopenArgs args)
         {
-            foreach (var sporter in args.sporters)
-            {
-                wachtrij.Enqueue(sporter);
-            }
+            Console.WriteLine(args.instructiegroep.Count);
+            Console.WriteLine(args.InstructieAantal);
+            Console.WriteLine(args.tempList.Count);
+            Console.WriteLine("-----------");
+            
+                for (int i = 0; i < 5; i++)
+                {
+                    
+                        if (args.InstructieAantal == 5) {
+                        Console.WriteLine("ASDADASDASDSA");
+                            wachtrij.Enqueue(args.tempList.Dequeue());
+                        }
+                    
+                }
+            
         }
     }
 }

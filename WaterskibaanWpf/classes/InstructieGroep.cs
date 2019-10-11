@@ -9,16 +9,17 @@ namespace WaterskibaanWpf.classes
 {
     public class InstructieGroep : Wachtrij
     {
-        public int MAX_LENGTE_RIJ = 5;
-
-        public void OnWachtrijFired(object source, EventArgs e)
-        {
-            Console.WriteLine("Wachtrij Instructiegroep event fired.");
-        }
+        public int MAX_LENGTE_RIJ = 25;
 
         public void OnInstructieAfgelopen(InstructieAfgelopenArgs args)
         {
-            Console.WriteLine("hoeveel in args.sporters in instructiegoepw bestand" + args.sporters.Count);
+           
+            args.InstructieAantal = this.wachtrij.Count();
+            
+            foreach (Sporter s in args.instructiegroep)
+            {
+                wachtrij.Enqueue(s);
+            }
         }
     }
 }

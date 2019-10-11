@@ -18,6 +18,7 @@ using System.Windows.Threading;
 using WaterskibaanWpf.classes;
 using Random = WaterskibaanWpf.classes.Random;
 
+
 namespace WaterskibaanWpf
 {
     /// <summary>
@@ -54,7 +55,6 @@ namespace WaterskibaanWpf
         {
             InitializeComponent();
             SetGameEvents();
-            mainWindow = this;
         }
 
         public void SetGameEvents()
@@ -71,26 +71,43 @@ namespace WaterskibaanWpf
 
         public void updateGameLoop(Object source, ElapsedEventArgs e)
         {
-            if (loopCount % 3 == 0 && loopCount != 0)
+            Console.WriteLine($"wachtrij instructie: {wachtrijInstructie.wachtrij.Count}");
+            Console.WriteLine($"instructie: {instructieGroep.wachtrij.Count}");
+            Console.WriteLine($"wachtrij starten: {wachtrijStarten.wachtrij.Count}");
+            if(loopCheck(loopCount, 1))
             {
                 this.NieuweBezoeker(new NieuweBezoekerArgs() { sporter = new Sporter() });
             }
 
-            if (loopCount % 4 == 0 && loopCount != 0)
+            if (loopCheck(loopCount, 2))
             {
                 this.LijnenVerplaatst(new LijnenVerplaatstArgs());
             }
-            if (loopCount % 5 == 0 && loopCount != 0)
+            if (loopCheck(loopCount, 3))
             {
                 StartSporter(new LijnenVerplaatstArgs());
             }
 
-            if (loopCount % 20 == 0 && loopCount != 0)
+            if (loopCheck(loopCount, 5))
             {
-                this.InstructieAfgelopen(new InstructieAfgelopenArgs());
+                this.InstructieAfgelopen(new InstructieAfgelopenArgs()
+                {
+                    InstructieAantal = this.instructieGroep.wachtrij.Count,
+                    tempList = this.instructieGroep.wachtrij
+                });
+            }
+
+            if (loopCheck(loopCount, 10))
+            {
+                
             }
 
             this.loopCount++;
+        }
+
+        public static bool loopCheck(int x, int y)
+        {
+            return ( (x % y == 0) && (x != 0) );
         }
 
         public void updateValuesOnScreen(Object source, ElapsedEventArgs e)
@@ -102,18 +119,12 @@ namespace WaterskibaanWpf
         {
             if (waterskibaan.kabel.IsStartPositieLeeg() && !wachtrijStarten.IsWachtrijLeeg())
             {
-                Console.WriteLine("\t Sporter added");
                 Sporter sporter = wachtrijStarten.wachtrij.Dequeue();
              
                 sporter.Skies = new Skies();
                 sporter.Zwemvest = new Zwemvest();
 
                 waterskibaan.SporterStart(sporter);
-
-            }
-            else
-            {
-                Console.WriteLine("\t Sported not added");
             }
         }
 
@@ -123,50 +134,26 @@ namespace WaterskibaanWpf
             aTimer.Elapsed += updateGameLoop;
             aTimer.Elapsed += updateValuesOnScreen;
             aTimer.Elapsed += updateWaterskibaanCanvas;
+            aTimer.Elapsed += updateCanvasWachtrijen;
             aTimer.AutoReset = true;
             aTimer.Enabled = true;
         }
 
         private void updateWaterskibaanCanvas(object sender, ElapsedEventArgs e)
         {
-            App.Current.Dispatcher.Invoke((Action)delegate { paintWaterskibaanCanvas(); });
+            App.Current.Dispatcher.Invoke((Action)delegate { PaintMethods.paintWaterskibaanCanvas(canvasWaterskibaan, waterskibaan); });
         }
 
-        public void paintWaterskibaanCanvas()
+        private void updateCanvasWachtrijen(object sender, ElapsedEventArgs e)
         {
-            int padding = 12;
-
-            canvasWaterskibaan.Children.Clear();
-            
-            foreach(Lijn lijn in waterskibaan.kabel.GeefLijnenOpKabel()) {
-
-                Rectangle r = new Rectangle()
-                {
-                    Width = 80,
-                    Height = 50,
-                    Fill = lijn.Sporter.KledingKleur
-                };
- 
-                Canvas.SetTop(r, 12.5);
-                Canvas.SetLeft(r, padding);
-
-                TextBlock textBlock = new TextBlock();
-                textBlock.Text = lijn.PositieOpKabel.ToString();
-                textBlock.FontSize = 25;
-               
-                textBlock.Margin = new Thickness((padding + 40), 100, 0, 0);
-
-                padding = padding + 87;
-
-                canvasWaterskibaan.Children.Add(r);
-                canvasWaterskibaan.Children.Add(textBlock);
-            }
+            App.Current.Dispatcher.Invoke((Action)delegate {
+                PaintMethods.paintWachtrij(canvasWachtrijInstructie, wachtrijInstructie.GetAlleSporters());
+                PaintMethods.paintWachtrij(canvasInstructie, instructieGroep.GetAlleSporters());
+                PaintMethods.paintWachtrij(canvasWachtrijStarten, wachtrijStarten.GetAlleSporters());
+            });
         }
 
-        public void paintWachtrij()
-        {
-
-        }
+        
         private void BtnStartSkibaan_Click(object sender, RoutedEventArgs e)
         {
             SetTimer();
