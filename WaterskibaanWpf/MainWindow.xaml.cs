@@ -62,8 +62,9 @@ namespace WaterskibaanWpf
             this.NieuweBezoeker += wachtrijInstructie.OnNieuweBezoeker;
 
             this.InstructieAfgelopen += wachtrijInstructie.OnInstructieAfgelopen;
-            this.InstructieAfgelopen += instructieGroep.OnInstructieAfgelopen;
             this.InstructieAfgelopen += wachtrijStarten.OnInstructieAfgelopen;
+            this.InstructieAfgelopen += instructieGroep.OnInstructieAfgelopen;
+           
 
             this.LijnenVerplaatst += waterskibaan.VerplaatsKabel;
             this.LijnenVerplaatst += this.StartSporter;

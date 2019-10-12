@@ -10,6 +10,7 @@ namespace WaterskibaanWpf.classes
     public class WachtrijStarten : Wachtrij
     {
         public int MAX_LENGTE_RIJ = 20;
+        public int c = 0;
 
         public void OnInstructieAfgelopen(InstructieAfgelopenArgs args)
         {
@@ -22,12 +23,13 @@ namespace WaterskibaanWpf.classes
                 {
                     
                         if (args.InstructieAantal == 5) {
-                        Console.WriteLine("ASDADASDASDSA");
+                            
                             wachtrij.Enqueue(args.tempList.Dequeue());
                         }
                     
                 }
-            
+
+            this.c++;
         }
     }
 }

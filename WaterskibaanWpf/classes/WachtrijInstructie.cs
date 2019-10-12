@@ -21,9 +21,7 @@ namespace WaterskibaanWpf.classes
 
         public void OnInstructieAfgelopen(InstructieAfgelopenArgs args)
         {
-            int addAmount = 5 - args.InstructieAantal;
-
-            for (int i = 0; i < addAmount; i++) {
+            for (int i = 0; i < 5; i++) {
                 
                 args.instructiegroep.Add(wachtrij.Dequeue());
             }
