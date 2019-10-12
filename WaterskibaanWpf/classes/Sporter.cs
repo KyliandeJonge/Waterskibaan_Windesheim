@@ -12,6 +12,7 @@ namespace WaterskibaanWpf.classes
     public class Sporter
     {
         Brush[] brushes = new Brush[] {
+          Brushes.Red,
           Brushes.Navy,
           Brushes.Chartreuse,
           Brushes.DarkMagenta,
@@ -34,8 +35,8 @@ namespace WaterskibaanWpf.classes
         public Sporter()
         {
             this.Moves = MoveCollection.GetWillekeurigeMoves();
-            this.KledingKleur = brushes[Random.Next(0, 5)];
-            this.getBehaaldePunten();
+            this.KledingKleur = brushes[Random.Next(0, 6)];
+            
             AantalRondenTeGaan = this.setAantalRondenTeGaan();
         }
 
@@ -49,7 +50,7 @@ namespace WaterskibaanWpf.classes
             return (huidigeMove != null) ? huidigeMove.Naam() : "geen move";
         }
 
-        private void getBehaaldePunten()
+        public void getBehaaldePunten()
         {
             if (this.Moves == null)
                 return;

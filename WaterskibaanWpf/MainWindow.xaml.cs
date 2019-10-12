@@ -49,6 +49,9 @@ namespace WaterskibaanWpf
         WachtrijInstructie wachtrijInstructie = new WachtrijInstructie();
         InstructieGroep instructieGroep = new InstructieGroep();
         WachtrijStarten wachtrijStarten = new WachtrijStarten();
+        
+        // Logger
+        Logger logger = new Logger();
 
         public int loopCount;
         public MainWindow()
@@ -60,6 +63,7 @@ namespace WaterskibaanWpf
         public void SetGameEvents()
         {
             this.NieuweBezoeker += wachtrijInstructie.OnNieuweBezoeker;
+            this.NieuweBezoeker += logger.OnNieuweBezoeker;
 
             this.InstructieAfgelopen += wachtrijInstructie.OnInstructieAfgelopen;
             this.InstructieAfgelopen += wachtrijStarten.OnInstructieAfgelopen;
@@ -72,23 +76,9 @@ namespace WaterskibaanWpf
 
         public void updateGameLoop(Object source, ElapsedEventArgs e)
         {
-            Console.WriteLine($"wachtrij instructie: {wachtrijInstructie.wachtrij.Count}");
-            Console.WriteLine($"instructie: {instructieGroep.wachtrij.Count}");
-            Console.WriteLine($"wachtrij starten: {wachtrijStarten.wachtrij.Count}");
-            if(loopCheck(loopCount, 1))
-            {
-                this.NieuweBezoeker(new NieuweBezoekerArgs() { sporter = new Sporter() });
-            }
-
-            if (loopCheck(loopCount, 2))
-            {
-                this.LijnenVerplaatst(new LijnenVerplaatstArgs());
-            }
-            if (loopCheck(loopCount, 3))
-            {
-                StartSporter(new LijnenVerplaatstArgs());
-            }
-
+            this.NieuweBezoeker(new NieuweBezoekerArgs() { sporter = new Sporter(), window = this, kabel = waterskibaan.kabel }); 
+            if (loopCheck(loopCount, 2)) this.LijnenVerplaatst(new LijnenVerplaatstArgs());
+            if (loopCheck(loopCount, 3)) StartSporter(new LijnenVerplaatstArgs());
             if (loopCheck(loopCount, 5))
             {
                 this.InstructieAfgelopen(new InstructieAfgelopenArgs()
@@ -97,12 +87,6 @@ namespace WaterskibaanWpf
                     tempList = this.instructieGroep.wachtrij
                 });
             }
-
-            if (loopCheck(loopCount, 10))
-            {
-                
-            }
-
             this.loopCount++;
         }
 
@@ -154,7 +138,6 @@ namespace WaterskibaanWpf
             });
         }
 
-        
         private void BtnStartSkibaan_Click(object sender, RoutedEventArgs e)
         {
             SetTimer();

@@ -7,24 +7,37 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="1200">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="74*"/>
             <ColumnDefinition Width="49*"/>
             <ColumnDefinition Width="474*"/>
         </Grid.ColumnDefinitions>
-        <Canvas HorizontalAlignment="Right" x:Name="canvasWachtrijStarten" Height="100" Margin="0,280,29.6,0" VerticalAlignment="Top" Width="900" Background="Bisque" Grid.Column="2"/>
-        <Canvas HorizontalAlignment="Right" Height="200" Margin="0,30,29.6,0" VerticalAlignment="Top" Width="900" Background="Bisque" Grid.Column="2">
+        <Canvas HorizontalAlignment="Right" x:Name="canvasWachtrijStarten" Height="100" Margin="0,28.5,30,0" VerticalAlignment="Top" Width="900" Background="Bisque" Grid.Column="2" Grid.Row="1"/>
+        <Canvas HorizontalAlignment="Right" Height="200" Margin="0,30,30,0" VerticalAlignment="Top" Width="900" Background="Bisque" Grid.Column="2">
             <Canvas x:Name="canvasWaterskibaan" Height="150" Canvas.Top="50" Width="900"/>
         </Canvas>
-        <Canvas HorizontalAlignment="Right" x:Name="canvasInstructie" Height="100" Margin="0,410,29.6,0" VerticalAlignment="Top" Width="900" Background="YellowGreen" Grid.Column="2"/>
-        <Canvas HorizontalAlignment="Right" x:Name="canvasWachtrijInstructie" Height="100" Margin="0,540,29.6,0" VerticalAlignment="Top" Width="900" Background="YellowGreen" Grid.Column="2"/>
-        <Label Content="Lijnenvoorraad:" Margin="19.4,230,748.6,0" VerticalAlignment="Top" FontSize="18" Grid.Column="2" FontFamily="OCR A Extended"/>
-        <Label Content="Wachtrij Instructie" HorizontalAlignment="Left" Margin="18.4,540,0,0" VerticalAlignment="Top" FontSize="18" Grid.Column="2" FontFamily="OCR A Extended"/>
-        <Label Content="Instructiegroep" HorizontalAlignment="Left" Margin="18.4,410,0,0" VerticalAlignment="Top" FontSize="18" Grid.Column="2" FontFamily="OCR A Extended"/>
-        <Label Content="Wachtrij Starten" HorizontalAlignment="Left" Margin="18.4,280,0,0" VerticalAlignment="Top" FontSize="18" Grid.Column="2" FontFamily="OCR A Extended"/>
-        <Label Content="0" HorizontalAlignment="Left" Margin="186.4,230,0,0" VerticalAlignment="Top" FontSize="18" Name="lblLijnenVoorraad" Grid.Column="2" FontFamily="OCR A Extended"/>
-        <Label Content="Waterskibaan" HorizontalAlignment="Left" Margin="18.4,30,0,0" VerticalAlignment="Top" FontSize="18" Grid.Column="2" FontFamily="OCR A Extended"/>
-        <Button x:Name="btnStartSkibaan" Content="Start" HorizontalAlignment="Left" Margin="10,597,0,0" VerticalAlignment="Top" Width="226" Click="BtnStartSkibaan_Click" Grid.ColumnSpan="2"/>
-        <Button Content="Stop" HorizontalAlignment="Left" Margin="10,621,0,0" VerticalAlignment="Top" Width="226" Click="Button_Click" Grid.ColumnSpan="2"/>
+        <Canvas HorizontalAlignment="Right" x:Name="canvasInstructie" Height="100" Margin="0,158.5,30,0" VerticalAlignment="Top" Width="900" Background="YellowGreen" Grid.Column="2" Grid.Row="1"/>
+        <Canvas HorizontalAlignment="Right" x:Name="canvasWachtrijInstructie" Height="100" Margin="0,288.5,30,0" VerticalAlignment="Top" Width="900" Background="YellowGreen" Grid.Column="2" Grid.Row="1"/>
+        <Label Content="Lijnenvoorraad:" Margin="10,201,56,0" VerticalAlignment="Top" FontSize="18" FontFamily="OCR A Extended" Grid.ColumnSpan="2"/>
+        <Label Content="Wachtrij Instructie" HorizontalAlignment="Left" Margin="18,288.5,0,0" VerticalAlignment="Top" FontSize="18" Grid.Column="2" FontFamily="OCR A Extended" Grid.Row="1"/>
+        <Label Content="Instructiegroep" HorizontalAlignment="Left" Margin="18,158.5,0,0" VerticalAlignment="Top" FontSize="18" Grid.Column="2" FontFamily="OCR A Extended" Grid.Row="1"/>
+        <Label Content="Wachtrij Starten" HorizontalAlignment="Left" Margin="18,28.5,0,0" VerticalAlignment="Top" FontSize="18" Grid.Column="2" FontFamily="OCR A Extended" Grid.Row="1"/>
+        <Label Content="0" HorizontalAlignment="Left" Margin="67,201,0,0" VerticalAlignment="Top" FontSize="18" Name="lblLijnenVoorraad" Grid.Column="1" FontFamily="OCR A Extended" RenderTransformOrigin="-6.5,-0.19"/>
+        <Label Content="Waterskibaan" HorizontalAlignment="Left" Margin="18,30,0,0" VerticalAlignment="Top" FontSize="18" Grid.Column="2" FontFamily="OCR A Extended"/>
+        <Button x:Name="btnStartSkibaan" Content="Start" HorizontalAlignment="Left" Margin="10,345.5,0,0" VerticalAlignment="Top" Width="226" Click="BtnStartSkibaan_Click" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <Button Content="Stop" HorizontalAlignment="Left" Margin="10,369.5,0,0" VerticalAlignment="Top" Width="226" Click="Button_Click" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <Label Content="Totaal aantal bezoeker:" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" FontFamily="OCR A Extended" FontSize="14" Grid.ColumnSpan="2" Width="208"/>
+        <Label Content="Hoogste score:" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top" FontFamily="OCR A Extended" FontSize="14" Grid.ColumnSpan="2" Width="208"/>
+        <Label Content="Aantal rode kleding: " HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" FontFamily="OCR A Extended" FontSize="14" Grid.ColumnSpan="2" Width="208" Height="30"/>
+        <Label Content="Totaal aantal rondjes: " HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top" FontFamily="OCR A Extended" FontSize="14" Grid.ColumnSpan="2" Width="208" Height="30"/>
+        <Button Content="Toon 10 op basis van lichtheid" HorizontalAlignment="Left" Margin="10,153,0,0" VerticalAlignment="Top" Width="226" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblTotaalAantalBezoekers" Content="0" HorizontalAlignment="Left" Margin="70,30,0,0" VerticalAlignment="Top" FontFamily="OCR A Extended" FontSize="14" Width="38" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblHoogsteScore" Content="0" HorizontalAlignment="Left" Margin="70,54,0,0" VerticalAlignment="Top" FontFamily="OCR A Extended" FontSize="14" Width="38" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Label x:Name="lblAantalRodeKleding" Content="0" HorizontalAlignment="Left" Margin="70,78,0,0" VerticalAlignment="Top" FontFamily="OCR A Extended" FontSize="14" Width="38" Grid.Column="1" RenderTransformOrigin="1.224,0.5" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblTotaalAantalRondjes" Content="0" HorizontalAlignment="Left" Margin="70,106,0,0" VerticalAlignment="Top" FontFamily="OCR A Extended" FontSize="14" Width="38" Grid.Column="1" RenderTransformOrigin="1.224,0.5" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

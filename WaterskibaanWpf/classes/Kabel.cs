@@ -9,6 +9,7 @@ namespace WaterskibaanWpf.classes
     public class Kabel
     {
         private LinkedList<Lijn> _lijnen = new LinkedList<Lijn>();
+        public int totaalAantalRondjes;
 
         public bool IsStartPositieLeeg()
         {
@@ -38,11 +39,11 @@ namespace WaterskibaanWpf.classes
             {
                 if (it.Value.PositieOpKabel == 9)
                 {
-                    Console.WriteLine(it.Value);
                     _lijnen.Remove(it);
                     _lijnen.AddFirst(it);
                     it.Value.PositieOpKabel = 0;
                     it.Value.Sporter.AantalRondenTeGaan--;
+                    this.totaalAantalRondjes++;
 
                 }
                 else {
@@ -61,6 +62,8 @@ namespace WaterskibaanWpf.classes
                 {
                     it.Value.PositieOpKabel = 0;
                     _lijnen.Remove(it);
+
+                    it.Value.Sporter.getBehaaldePunten();
                     return it.Value;
                 }
             }
