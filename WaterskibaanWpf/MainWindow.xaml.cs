@@ -1,22 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Threading;
 using WaterskibaanWpf.classes;
-using Random = WaterskibaanWpf.classes.Random;
 
 
 namespace WaterskibaanWpf
@@ -49,7 +34,7 @@ namespace WaterskibaanWpf
         WachtrijInstructie wachtrijInstructie = new WachtrijInstructie();
         InstructieGroep instructieGroep = new InstructieGroep();
         WachtrijStarten wachtrijStarten = new WachtrijStarten();
-        
+
         // Logger
         Logger logger = new Logger();
 
@@ -68,7 +53,7 @@ namespace WaterskibaanWpf
             this.InstructieAfgelopen += wachtrijInstructie.OnInstructieAfgelopen;
             this.InstructieAfgelopen += wachtrijStarten.OnInstructieAfgelopen;
             this.InstructieAfgelopen += instructieGroep.OnInstructieAfgelopen;
-           
+
 
             this.LijnenVerplaatst += waterskibaan.VerplaatsKabel;
             this.LijnenVerplaatst += this.StartSporter;
@@ -76,7 +61,7 @@ namespace WaterskibaanWpf
 
         public void updateGameLoop(Object source, ElapsedEventArgs e)
         {
-            this.NieuweBezoeker(new NieuweBezoekerArgs() { sporter = new Sporter(), window = this, kabel = waterskibaan.kabel }); 
+            this.NieuweBezoeker(new NieuweBezoekerArgs() { sporter = new Sporter(), window = this, kabel = waterskibaan.kabel });
             if (loopCheck(loopCount, 2)) this.LijnenVerplaatst(new LijnenVerplaatstArgs());
             if (loopCheck(loopCount, 3)) StartSporter(new LijnenVerplaatstArgs());
             if (loopCheck(loopCount, 5))
@@ -92,12 +77,7 @@ namespace WaterskibaanWpf
 
         public static bool loopCheck(int x, int y)
         {
-            return ( (x % y == 0) && (x != 0) );
-        }
-
-        public void updateValuesOnScreen(Object source, ElapsedEventArgs e)
-        {
-            App.Current.Dispatcher.Invoke((Action)delegate { lblLijnenVoorraad.Content = waterskibaan.lijnenVoorraad.GetAantalLijnen(); });
+            return ((x % y == 0) && (x != 0));
         }
 
         public void StartSporter(LijnenVerplaatstArgs args)
@@ -105,7 +85,7 @@ namespace WaterskibaanWpf
             if (waterskibaan.kabel.IsStartPositieLeeg() && !wachtrijStarten.IsWachtrijLeeg())
             {
                 Sporter sporter = wachtrijStarten.wachtrij.Dequeue();
-             
+
                 sporter.Skies = new Skies();
                 sporter.Zwemvest = new Zwemvest();
 
@@ -129,9 +109,15 @@ namespace WaterskibaanWpf
             App.Current.Dispatcher.Invoke((Action)delegate { PaintMethods.paintWaterskibaanCanvas(canvasWaterskibaan, waterskibaan); });
         }
 
+        public void updateValuesOnScreen(Object source, ElapsedEventArgs e)
+        {
+            App.Current.Dispatcher.Invoke((Action)delegate { lblLijnenVoorraad.Content = waterskibaan.lijnenVoorraad.GetAantalLijnen(); });
+        }
+
         private void updateCanvasWachtrijen(object sender, ElapsedEventArgs e)
         {
-            App.Current.Dispatcher.Invoke((Action)delegate {
+            App.Current.Dispatcher.Invoke((Action)delegate
+            {
                 PaintMethods.paintWachtrij(canvasWachtrijInstructie, wachtrijInstructie.GetAlleSporters());
                 PaintMethods.paintWachtrij(canvasInstructie, instructieGroep.GetAlleSporters());
                 PaintMethods.paintWachtrij(canvasWachtrijStarten, wachtrijStarten.GetAlleSporters());

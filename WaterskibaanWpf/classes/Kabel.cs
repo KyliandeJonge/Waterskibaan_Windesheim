@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WaterskibaanWpf.classes
 {
@@ -13,7 +10,8 @@ namespace WaterskibaanWpf.classes
 
         public bool IsStartPositieLeeg()
         {
-            for (LinkedListNode<Lijn> it = _lijnen.First; it != null; it = it.Next) {
+            for (LinkedListNode<Lijn> it = _lijnen.First; it != null; it = it.Next)
+            {
                 if (it.Value.PositieOpKabel == 0)
                 {
                     return false;
@@ -46,7 +44,8 @@ namespace WaterskibaanWpf.classes
                     this.totaalAantalRondjes++;
 
                 }
-                else {
+                else
+                {
                     it.Value.PositieOpKabel = it.Value.PositieOpKabel + 1;
                 }
 
@@ -74,6 +73,21 @@ namespace WaterskibaanWpf.classes
         public LinkedList<Lijn> GeefLijnenOpKabel()
         {
             return _lijnen;
+        }
+
+        public List<string> GeefMovesOpKabel()
+        {
+            List<string> moves = new List<string>();
+
+            for (LinkedListNode<Lijn> it = _lijnen.First; it != null; it = it.Next)
+            {
+                foreach (var m in it.Value.Sporter.Moves)
+                {
+                    moves.Add(m.Naam());
+                }
+            }
+
+            return moves;
         }
 
         public int GeefLijnenAantal()

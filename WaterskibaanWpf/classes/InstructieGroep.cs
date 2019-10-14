@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WaterskibaanWpf.interfaces;
+﻿using System.Linq;
 
 namespace WaterskibaanWpf.classes
 {
@@ -13,12 +8,15 @@ namespace WaterskibaanWpf.classes
 
         public void OnInstructieAfgelopen(InstructieAfgelopenArgs args)
         {
-           
+
             args.InstructieAantal = this.wachtrij.Count();
-            
+
             foreach (Sporter s in args.instructiegroep)
             {
-                wachtrij.Enqueue(s);
+                if (wachtrij.Count < MAX_LENGTE_RIJ)
+                {
+                    wachtrij.Enqueue(s);
+                }
             }
         }
     }

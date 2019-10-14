@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WaterskibaanWpf.classes;
 using System.Threading;
+using WaterskibaanWpf.classes;
 
 namespace WaterskibaanWpf
 {
@@ -39,11 +37,12 @@ namespace WaterskibaanWpf
 
             this.LijnenVerplaatst += waterskibaan.VerplaatsKabel;
             /*this.LijnenVerplaatst += this.StartSporter;*/
-            
-            
+
+
             int loopCount = 0;
 
-            while (true) {
+            while (true)
+            {
                 if (loopCount % 3 == 0 && loopCount != 0)
                 {
                     this.NieuweBezoeker(new NieuweBezoekerArgs() { sporter = new Sporter() });
@@ -51,24 +50,24 @@ namespace WaterskibaanWpf
 
                 if (loopCount % 4 == 0 && loopCount != 0)
                 {
-                    this.LijnenVerplaatst(new LijnenVerplaatstArgs());             
+                    this.LijnenVerplaatst(new LijnenVerplaatstArgs());
                 }
                 if (loopCount == 25)
                 {
                     StartSporter(new LijnenVerplaatstArgs());
                 }
-   
+
                 if (loopCount % 20 == 0 && loopCount != 0)
                 {
                     this.InstructieAfgelopen(new InstructieAfgelopenArgs());
                 }
-                    
+
                 Console.WriteLine("Aantal loops: " + loopCount);
                 Console.WriteLine("Grootte van instructie wachtrij: " + wachtrijInstructie.wachtrij.Count);
                 Console.WriteLine("Grootte vab starten wachtrij: " + wachtrijStarten.wachtrij.Count);
                 Console.WriteLine(waterskibaan);
                 Console.WriteLine("\n\n");
-                
+
                 loopCount++;
                 Thread.Sleep(1000);
             }
@@ -87,7 +86,7 @@ namespace WaterskibaanWpf
                 sporter.Zwemvest = new Zwemvest();
 
                 waterskibaan.SporterStart(sporter);
-                
+
             }
             else
             {

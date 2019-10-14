@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows.Media;
 using WaterskibaanWpf.interfaces;
 
@@ -36,13 +31,13 @@ namespace WaterskibaanWpf.classes
         {
             this.Moves = MoveCollection.GetWillekeurigeMoves();
             this.KledingKleur = brushes[Random.Next(0, 6)];
-            
+
             AantalRondenTeGaan = this.setAantalRondenTeGaan();
         }
 
         private int setAantalRondenTeGaan()
         {
-            return Random.Next(1,2);
+            return Random.Next(1, 2);
         }
 
         public string getNaamHuidigeMove()
@@ -59,6 +54,17 @@ namespace WaterskibaanWpf.classes
             {
                 AantalBehaaldePunten += move.Move();
             }
+        }
+
+        public int getCombinedRGB()
+        {
+            Color myColorFromBrush = ((SolidColorBrush)KledingKleur).Color;
+
+            int r = myColorFromBrush.R,
+                g = myColorFromBrush.G,
+                b = myColorFromBrush.B;
+
+            return (r * r + g * g + b * b);
         }
 
         public override string ToString()

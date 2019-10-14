@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WaterskibaanWpf.interfaces;
-
-namespace WaterskibaanWpf.classes
+﻿namespace WaterskibaanWpf.classes
 {
     public class WachtrijStarten : Wachtrij
     {
@@ -15,8 +8,9 @@ namespace WaterskibaanWpf.classes
         {
             for (int i = 0; i < 5; i++)
             {
-                if (args.InstructieAantal == 5) {
-                            
+                if (args.InstructieAantal >= 5 && wachtrij.Count < MAX_LENGTE_RIJ)
+                {
+
                     wachtrij.Enqueue(args.tempList.Dequeue());
                 }
             }

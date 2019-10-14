@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Timers;
 
 namespace WaterskibaanWpf.classes
@@ -12,16 +8,16 @@ namespace WaterskibaanWpf.classes
     {
         private static System.Timers.Timer aTimer;
 
-       /* public void test()
-        {
-            aTimer = new System.Timers.Timer(2000);
+        /* public void test()
+         {
+             aTimer = new System.Timers.Timer(2000);
 
-            MainWindow.mainWindow.lblLijnenVoorraad.Content = Random.Next(5,55);
+             MainWindow.mainWindow.lblLijnenVoorraad.Content = Random.Next(5,55);
 
-            aTimer.Enabled = true;
-            aTimer.AutoReset = true;
+             aTimer.Enabled = true;
+             aTimer.AutoReset = true;
 
-        }*/
+         }*/
 
         public static void test()
         {
@@ -44,8 +40,8 @@ namespace WaterskibaanWpf.classes
         private static void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
             /*            MainWindow.mainWindow.lblLijnenVoorraad.Content = e.SignalTime; */
-            
-            
+
+
         }
     }
 }
